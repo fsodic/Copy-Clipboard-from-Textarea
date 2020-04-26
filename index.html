@@ -10,12 +10,29 @@
 
 <textarea id="text-c1">https://www.fsodic.com</textarea>
 
-<a class="copy-btn" id="c1">Copy</a>
+<a class="btn-copy" id="c1">Copy</a>
 
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+  <script>$(document).ready(function(){
+    $(document).on('click', 'a.btn-copy', function(e){
+      e.preventDefault();
+      // btnName initialize the current click
+      // textBox initialize textarea target
+      // textBoxL count length value
+      var btnName = $(this).attr('id'), textBox = document.getElementById('text-'+btnName), textBoxL = textBox.value.length;
+      textBox.focus();
+      textBox.setSelectionRange(0,textBoxL);
+      document.execCommand('copy');
+      $(this).after('<span class="copied-clipboard">Copied to clipboard</span>');
+      setTimeout(function(){
+        $('.copied-clipboard).remove();
+      }, 7000);
+    });
+  });</script>
+  
 </body>
 
 </html>
