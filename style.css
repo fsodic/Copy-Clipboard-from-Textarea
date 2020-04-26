@@ -19,3 +19,6 @@ a.btn-copy {
   box-shadow: 0 0 2px 2px #0003;
   line-height: 30px;
 }
+.area {
+  padding: 1em;
+}
